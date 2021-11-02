@@ -23,7 +23,7 @@ public class BookRepositoryTest {
          */
         Book bookEntry = new Book();
         bookEntry.setTitle("Think Java How to Think Like a Computer Scientist");
-        bookEntry.setAuthor("Allen Downey");
+       // bookEntry.setAuthor("Allen Downey");
         bookEntry.setYear(2004);
         //bookEntry.setUser("1");
 

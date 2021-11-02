@@ -6,15 +6,24 @@
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
+<!--end of Navigation bar-->
+
     <div class = "container text-center">
         <div>
             <h1>Gain access now!</h1>
         </div>
         <div>
             <!-- action must match @PostMapping-->
+            <!--this form sends password of user object into encryption function-->
             <form th:action="@{/process_registration}" method = "post"
                   style="max-width: 600px; margin: 0 auto;"
                   th:object = "${user}"> <!--references user object -->
+
                 <div class = "m-3">
                     <div class = "form-group row">
                         <label class="col-form-label col-4">E-mail</label>

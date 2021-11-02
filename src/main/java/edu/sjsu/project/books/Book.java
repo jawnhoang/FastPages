@@ -1,5 +1,6 @@
 package edu.sjsu.project.books;
 
+import edu.sjsu.project.department.Department;
 import edu.sjsu.project.user.User;
 
 import javax.persistence.*;
@@ -9,13 +10,10 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) /*basically makes it Primary key*/
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false, length = 64)
     private String title;
-
-    @Column(nullable = false, length = 64)
-    private String author;
 
     @Column(nullable = false)
     private int year;
@@ -23,30 +21,39 @@ public class Book {
     //@Column(length = 45, nullable = false)
     //private String photo;
 
-
-    /***
-     * THIS ACTS AS A FOREIGN KEY TO USER TABLE
-     */
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "department_id")
+    private Department department;
 
-    public User getUser() {
-        return user;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
+
+    public Book() {
+    }
+
+    public Book(Integer id){
+        this.id = id;
+    }
+
+    public Book(String title, int year) {
+        this.title = title;
+        this.year = year;
+    }
+
 
     /***
      * getters and setters
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,8 +65,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
     //TODO
     /**
@@ -72,17 +83,6 @@ public class Book {
     }
      */
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
 
 
 }
