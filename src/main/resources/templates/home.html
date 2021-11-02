@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Navigation bar-->
+    <div th:replace="fragments/nav :: nav-bar">
+
+    </div>
+    <!--end of Navigation bar-->
+
+    <div class = "container text-center">
+        <div>
+            <form th:action="@{/logout}" method = "post">
+                <p>
+                    Welcome <b>[[${#request.userPrincipal.principal.getFullName}]]</b>
+                </p>
+                <input type="submit" value="logout"/>
+            </form>
+        </div>
+        <div>
+
+            <!--link to upload book to db to sell-->
+            <h1><a th:href="@{/sell}">Sell Books Now!!</a></h1>
+
+        </div>
+    </div>
+</body>
+</html>

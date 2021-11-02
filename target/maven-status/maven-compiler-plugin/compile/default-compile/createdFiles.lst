@@ -1,0 +1,14 @@
+edu\sjsu\project\department\DepartmentController.class
+edu\sjsu\project\books\BookRepository.class
+edu\sjsu\project\user\CustomUserDetails.class
+edu\sjsu\project\user\User.class
+edu\sjsu\project\user\UserRepository.class
+edu\sjsu\project\books\BookController.class
+edu\sjsu\project\user\UserController.class
+edu\sjsu\project\department\Department.class
+edu\sjsu\project\user\CustomUserDetailService.class
+edu\sjsu\project\app\WebSecurityConfig.class
+edu\sjsu\project\app\AppController.class
+edu\sjsu\project\department\DepartmentRepository.class
+edu\sjsu\project\books\Book.class
+edu\sjsu\project\WebappApplication.class
