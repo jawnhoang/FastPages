@@ -1,0 +1,62 @@
+<!--FRONTEND FOR REGISTERING BOOKS TO SELL-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Listing</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
+<!--end of Navigation bar-->
+
+
+    <div class="container text-center">
+        <div th:if ="${author.id == null}">
+            <h1>New Author Listing</h1>
+        </div>
+        <div th:unless ="${author.id == null}">
+            <h1>Edit Existing Authors</h1>
+        </div>
+    </div>
+    <form th:action="@{/authors/save}" method="post"
+          style="max-width: 600px; margin: 0 auto;"
+          th:object="${author}">
+        <input type="hidden" th:field="*{id}" th:value="${author.id}"/>
+    <div class = "m-3">
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Name of Author </label>
+            <div class = "col-8">
+                <input type="text" class = "form-control" th:field="*{authName}" required placeholder="Name"/>
+            </div>
+        </div>
+
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Choose Author's Department: </label>
+            <div class = "col-8">
+                <!--field="*{departments}" references OneToMany mapping in Author.java-->
+                <select th:field = "*{departments}" class="form-control" multiple="multiple" required>
+                    <th:block th:each="dept: ${listDept}">
+                        <option th:text="${dept.deptName}" th:value="${dept.id}"></option>
+                    </th:block>
+                </select>
+            </div>
+        </div>
+
+
+        <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/home}" role="button">Cancel</a>
+            <button type = "submit" class = "btn btn-primary">Add</button>
+        </div>
+
+    </div>
+    </form>
+
+
+
+</body>
+</html>

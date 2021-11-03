@@ -4,6 +4,8 @@ import edu.sjsu.project.department.Department;
 import edu.sjsu.project.user.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -18,8 +20,9 @@ public class Book {
     @Column(nullable = false)
     private int year;
 
-    //@Column(length = 45, nullable = false)
-    //private String photo;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<BookDetails> details = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "department_id")
@@ -72,18 +75,22 @@ public class Book {
     public void setYear(int year) {
         this.year = year;
     }
-    //TODO
-    /**
-    public String getPhoto() {
-        return photo;
+
+    public void addAuth(String firstName, String lastName){
+        this.details.add(new BookDetails(firstName, lastName, this));
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public List<BookDetails> getDetails() {
+        return details;
     }
-     */
 
+    public void setDetails(List<BookDetails> details) {
+        this.details = details;
+    }
 
+    public void setDetails(Integer id, String firstName, String lastName){
+        this.details.add(new BookDetails(id, firstName, lastName, this));
+    }
 
 }
 

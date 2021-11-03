@@ -1,4 +1,4 @@
-<!--FRONTEND OF SHOWING ALL BOOKS AVAILABLE-->
+
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
@@ -17,33 +17,29 @@
 
     <div class = "container text-center">
         <div>
-            <h1>Available Books</h1>
+            <h1>Authors</h1>
             <div>
                 <table class ="table table-bordered">
                     <thead class="thead-dark">
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Department</th>
-                        <th>Authors</th>
+                        <th>Name</th>
+                        <th>Departments</th>
+                    <th></th>
                     </thead>
                     <tbody>
-                        <th:block th:each = "books: ${listBooks}">
+                        <th:block th:each = "author: ${listAuth}">
                             <tr>
-                                <td>[[${books.title}]]</td>
-                                <td>[[${books.year}]]</td>
-                                <td>[[${books.department.deptName}]]</td>
-                                <td>[[${books.details}]]</td>
+                                <td>[[${author.authName}]]</td>
+                                <td>[[${author.departments}]]</td>
                                 <td>
-                                    <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>
+                                    <a th:href="@{'/authors/edit/' + ${author.id}}">Edit</a>
                                     &nbsp;
-                                    <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
+                                    <a th:href="@{'/authors/delete/' + ${author.id}}">Remove</a>
                                 </td>
                             </tr>
                         </th:block>
                     </tbody>
                 </table>
             </div>
-
 
         </div>
         <div class = "text-center p-3">

@@ -1,6 +1,8 @@
 package edu.sjsu.project.department;
 
 
+import edu.sjsu.project.author.Author;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,18 @@ public class Department {
 
     @Column(nullable = false, length = 64)
     private String deptName;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     public Department(){}
 
@@ -38,5 +52,11 @@ public class Department {
 
     public void setDeptName(String deptName) {
         this.deptName = deptName;
+    }
+
+
+    @Override
+    public String toString() {
+        return deptName;
     }
 }

@@ -27,6 +27,11 @@
                         <th:block th:each = "department: ${listDept}">
                             <tr>
                                 <td>[[${department.deptName}]]</td>
+                                <td>
+                                    <a th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>
+                                    &nbsp;
+                                    <a th:href="@{'/departments/delete/' + ${department.id}}">Remove</a>
+                                </td>
                             </tr>
                         </th:block>
                     </tbody>

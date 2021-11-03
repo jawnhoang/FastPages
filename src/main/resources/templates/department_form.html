@@ -25,12 +25,14 @@
           th:object="${department}">
     <div class = "m-3">
         <div class = "form-group row text-center">
+            <label class="col-form-label col-sm-4">Field of Focus:</label>
             <div class = "col-8">
                 <input type="text" class = "form-control" th:field="*{deptName}" required placeholder="Name of Department"/>
             </div>
         </div>
 
         <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/home}" role="button">Cancel</a>
             <button type = "submit" class = "btn btn-primary">Submit</button>
         </div>
 

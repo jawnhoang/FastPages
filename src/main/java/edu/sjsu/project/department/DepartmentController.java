@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -32,6 +33,13 @@ public class DepartmentController {
     @PostMapping("/departments/save")
     public String saveDepartment(Department department){
         repo.save(department);
+        return "redirect:/departments";
+    }
+
+    @GetMapping("/departments/delete/{id}")
+    public String deleteBook(@PathVariable("id") Integer id, Model model){
+        repo.deleteById(id);
+
         return "redirect:/departments";
     }
 
