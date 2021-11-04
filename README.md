@@ -17,6 +17,18 @@ Updating and Maintaining
 1. any changes, always build as maven
 2. run .jar
 
+--------------------------
+
+for admin stuff run these sql commands (replace test with what your database name is)
+
+SELECT * FROM test.roles;
+SELECT * FROM test.users_roles;
+SELECT * FROM test.user;
+
+then in the result for roles, manually add id 1 as name USER and id 2 as name ADMIN
+
+then go to the results for users_roles and find the id of the user you want to be admin in the results for user 
+and put that number under user_id and put 2 in role_id of the same row and boom that user is now an admin
 
 --------------------------
 when importing, if src file not showing
