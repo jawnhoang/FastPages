@@ -1,9 +1,14 @@
 package edu.sjsu.project.user;
 
+import javassist.Loader;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 /**
  * this class handles data validation
@@ -18,7 +23,13 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Set<Role> roles = user.getRoles();
+        List<SimpleGrantedAuthority> auth = new ArrayList<>();
+
+        for(Role r:roles){
+            auth.add(new SimpleGrantedAuthority(r.getName()));
+        }
+        return auth;
     }
 
     @Override
