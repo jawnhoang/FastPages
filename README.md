@@ -22,7 +22,9 @@ Updating and Maintaining
 for admin stuff run these sql commands (replace test with what your database name is)
 
 SELECT * FROM test.roles;
+
 SELECT * FROM test.users_roles;
+
 SELECT * FROM test.user;
 
 then in the result for roles, manually add id 1 as name USER and id 2 as name ADMIN
