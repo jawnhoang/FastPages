@@ -7,16 +7,39 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-
 <!--Navigation bar-->
 <div th:replace="fragments/nav :: nav-bar">
 
 </div>
+<!--end of Navigation bar-->
 
-<div>
-    <h2>Welcome to Your Shopping Cart <b>[[${#request.userPrincipal.principal.getFullName}]]</b> </h2>
+<div class = "container text-center">
+    <div>
+        <h2>Your Book Cart:</h2>
+        <div>
+            <table class ="table table-bordered">
+                <thead class="thead-dark">
+                <th>Title</th>
+                </thead>
+                <tbody>
+                <th:block th:each = "items: ${listCart}">
+                    <tr>
+                        <td>[[${books.title}]]</td>
+                        <td>&nbsp;
+                            <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+    <div class = "text-center p-3">
+        <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
+    </div>
 </div>
-
 
 </body>
 </html>

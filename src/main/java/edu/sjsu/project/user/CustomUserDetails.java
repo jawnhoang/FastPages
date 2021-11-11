@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class CustomUserDetails implements UserDetails {
 
-    private static User user;
+    private User user;
 
     public CustomUserDetails(User user) {
         this.user = user;
@@ -25,10 +25,6 @@ public class CustomUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> roles = user.getRoles();
         List<SimpleGrantedAuthority> auth = new ArrayList<>();
-
-        if(roles.isEmpty()) {
-            user.addRole(new Role("USER", 1));
-        }
 
         for(Role r:roles){
             auth.add(new SimpleGrantedAuthority(r.getName()));
@@ -44,11 +40,6 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.getEmail();
-    }
-
-
-    public static User getUser(){
-        return user;
     }
 
     @Override
@@ -75,8 +66,8 @@ public class CustomUserDetails implements UserDetails {
         return user.getFirstName()+" "+ user.getLastName();
     }
 
-    public Integer getRoleID(){ return user.getRoles().iterator().next().getId();}
-
     public long getUserID(){ return user.getId();}
+
+    public User getUser(){return user;}
 
 }

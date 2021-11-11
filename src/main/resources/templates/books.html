@@ -34,15 +34,9 @@
                                 <td>[[${books.department.deptName}]]</td>
                                 <td>[[${books.details}]]</td>
                                 <td>
-
-                                    <div class="container text-center">
-                                        <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
-                                            <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>&nbsp;
-                                            <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
-                                        </div>
-                                    </div>
-
-
+                                    <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>
+                                    &nbsp;
+                                    <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
                                 </td>
                             </tr>
                         </th:block>
@@ -54,10 +48,7 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
-            <br>
-            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
-                <a class="btn btn-secondary" th:href="@{/books/new}" role="button">Add</a>
-            </div>
+            <a class="btn btn-secondary" th:href="@{/books/new}" role="button">Add</a>
         </div>
     </div>
 </body>

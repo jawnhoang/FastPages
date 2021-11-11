@@ -31,11 +31,9 @@
                                 <td>[[${author.authName}]]</td>
                                 <td>[[${author.departments}]]</td>
                                 <td>
-                                    <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
-                                        <a th:href="@{'/authors/edit/' + ${author.id}}">Edit</a>
-                                        &nbsp;
-                                        <a th:href="@{'/authors/delete/' + ${author.id}}">Remove</a>
-                                    </div>
+                                    <a th:href="@{'/authors/edit/' + ${author.id}}">Edit</a>
+                                    &nbsp;
+                                    <a th:href="@{'/authors/delete/' + ${author.id}}">Remove</a>
                                 </td>
                             </tr>
                         </th:block>
@@ -46,9 +44,7 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
-            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
-                <a class="btn btn-secondary" th:href="@{/authors/new}" role="button">Add</a>
-            </div>
+            <a class="btn btn-secondary" th:href="@{/departments/new}" role="button">Add</a>
         </div>
     </div>
 </body>

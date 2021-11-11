@@ -37,7 +37,6 @@ public class UserController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String cryptPass = encoder.encode(user.getPassword());
         user.setPassword(cryptPass);
-
         userRepo.save(user);
         return "registration_success";
 

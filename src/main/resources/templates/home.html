@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>Fast Pages</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -23,27 +23,13 @@
                 <input type="submit" value="logout"/>
             </form>
         </div>
-        <span>
+        <div>
 
             <!--link to upload book to db to sell-->
+            <h2><a th:href="@{/books}">View All Books</a> </h2>
+            <h2><a th:href="@{/departments}">View Departments</a></h2>
+            <h2><a th:href="@{/authors}">View All Authors</a></h2>
 
-            <div class="container text-center">
-                <div th:if ="${#request.userPrincipal.principal.getRoleID == 1}">
-                    <h2><a th:href="@{/books}">View All Books</a> </h2>
-                    <h2><a th:href="@{/departments}">View Departments</a></h2>
-                    <h2><a th:href="@{/authors}">View All Authors</a></h2>
-                </div>
-                <div th:unless ="${#request.userPrincipal.principal.getRoleID == 1}">
-                    <h2><a th:href="@{/books}">View All Books</a> </h2>
-                    <h2><a th:href="@{/departments}">View Departments</a></h2>
-                    <h2><a th:href="@{/authors}">View All Authors</a></h2>
-                    <h2><a th:href="@{/books/new}">Add Books</a></h2>
-                    <h2><a th:href="@{/departments/new}">Add New Department</a></h2>
-                    <h2><a th:href="@{/authors/new}">Add New Author</a></h2>
-                </div>
-            </div>
-
-        </span>
         </div>
     </div>
 </body>
