@@ -36,6 +36,7 @@
                                 <td>
 
                                     <div class="container text-center">
+                                        <a th:href="@{'/cart/add/' + ${books.id}}">Add to Cart</a>&nbsp;
                                         <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                             <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>&nbsp;
                                             <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>

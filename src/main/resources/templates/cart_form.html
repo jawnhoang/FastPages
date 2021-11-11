@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
+
+<div class = "container text-center">
+<p> [[${book.title}]] has been added to your cart</p>
+</div>
+
+<div class = "text-center p-3">
+    <a class="btn btn-secondary" th:href="@{/books}" role="button">Back to Books</a>
+    <a class="btn btn-secondary" th:href="@{/cart}" role="button">Go to Cart</a>
+</div>
+</body>
+</html>

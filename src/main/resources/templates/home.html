@@ -34,6 +34,7 @@
                     <h2><a th:href="@{/authors}">View All Authors</a></h2>
                 </div>
                 <div th:unless ="${#request.userPrincipal.principal.getRoleID == 1}">
+                    <h2><a th:href="@{/adminPanel}">Admin Panel</a></h2>
                     <h2><a th:href="@{/books}">View All Books</a> </h2>
                     <h2><a th:href="@{/departments}">View Departments</a></h2>
                     <h2><a th:href="@{/authors}">View All Authors</a></h2>
