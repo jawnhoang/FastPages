@@ -33,11 +33,23 @@
                                 <td>[[${books.year}]]</td>
                                 <td>[[${books.department.deptName}]]</td>
                                 <td>[[${books.details}]]</td>
+                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                 <td>
-                                    <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>
-                                    &nbsp;
-                                    <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
+                                        <div class="container text-center">
+                                            <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>&nbsp;
+                                            <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
+                                        </div>
+
                                 </td>
+                                </div>
+                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 1}">
+                                    <td>
+                                    <div class="container text-center">
+                                        <a th:href="@{'/cart/add/' + ${books.id}}">Check Out</a>&nbsp;
+                                    </div>
+                                    </td>
+                                </div>
+
                             </tr>
                         </th:block>
                     </tbody>
@@ -48,7 +60,10 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
-            <a class="btn btn-secondary" th:href="@{/books/new}" role="button">Add</a>
+            <br>
+            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                <a class="btn btn-secondary" th:href="@{/books/new}" role="button">Add</a>
+            </div>
         </div>
     </div>
 </body>

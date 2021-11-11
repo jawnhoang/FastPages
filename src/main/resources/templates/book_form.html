@@ -6,9 +6,7 @@
     <meta charset="UTF-8">
     <title>Book Listing</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
-
 </head>
-
 <body>
 <!--Navigation bar-->
 <div th:replace="fragments/nav :: nav-bar">
@@ -50,7 +48,6 @@
                 <select th:field = "*{department}" class="form-control" required>
                     <th:block th:each="dept: ${listDept}">
                         <option th:text="${dept.deptName}" th:value="${dept.id}"/>
-
                     </th:block>
                 </select>
             </div>
@@ -84,9 +81,7 @@
                 </div>
             </div>
             </th:block>
-
-<!--    DYNAMICALLY ADD MORE AUTHORS WITH A BUTTON
-
+<!--
         <div class = "form-group row">
             <label class="col-form-label col-sm-4">Author #2: </label>
             <div class = "col-sm-4">
@@ -109,7 +104,7 @@
 -->
 
         <div class = "text-center p-3">
-            <a class="btn btn-secondary" th:href="@{/home}" role="button">Cancel</a>
+            <a class="btn btn-secondary" th:href="@{/books}" role="button">Cancel</a>
             <button type = "submit" class = "btn btn-primary">Add</button>
         </div>
 

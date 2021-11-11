@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Cart</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
@@ -23,11 +23,8 @@
                 </thead>
                 <tbody>
                 <th:block th:each = "items: ${listCart}">
-                    <tr>
-                        <td>[[${books.title}]]</td>
-                        <td>&nbsp;
-                            <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
-                        </td>
+                    <tr th:with="book = ${items.book}">
+                       <td>[[${book.title}]]</td>
                     </tr>
                 </th:block>
                 </tbody>

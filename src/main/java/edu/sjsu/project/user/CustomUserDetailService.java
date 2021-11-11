@@ -1,11 +1,12 @@
 package edu.sjsu.project.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class CustomUserDetailService implements UserDetailsService {
+public class   CustomUserDetailService implements UserDetailsService {
     @Autowired
     private UserRepository userRepo;
 
@@ -18,4 +19,6 @@ public class CustomUserDetailService implements UserDetailsService {
         }
         return new CustomUserDetails(user);
     }
+
+
 }

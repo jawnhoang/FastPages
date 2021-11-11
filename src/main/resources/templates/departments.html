@@ -27,11 +27,13 @@
                         <th:block th:each = "department: ${listDept}">
                             <tr>
                                 <td>[[${department.deptName}]]</td>
+                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                 <td>
-                                    <a th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>
-                                    &nbsp;
-                                    <a th:href="@{'/departments/delete/' + ${department.id}}">Remove</a>
+                                        <a th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>
+
+                                        <a th:href="@{'/departments/delete/' + ${department.id}}">Remove</a>
                                 </td>
+                                </div>
                             </tr>
                         </th:block>
                     </tbody>
@@ -41,7 +43,9 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
-            <a class="btn btn-secondary" th:href="@{/departments/new}" role="button">Add</a>
+            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                <a class="btn btn-secondary" th:href="@{/departments/new}" role="button">Add</a>
+            </div>
         </div>
     </div>
 </body>
