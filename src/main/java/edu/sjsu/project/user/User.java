@@ -15,7 +15,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) /*basically makes it Primary key*/
-    private Long id;
+    private Integer id;
 
     /***
      * @Columns acts as constraints
@@ -45,25 +45,11 @@ public class User {
         this.roles.add(r);
     }
 
-    /**
-     * one user can sell multiple books
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-    private List<Book> books = new ArrayList<>();
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-    */
 
     /***
      * setters and getters
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -85,7 +71,7 @@ public class User {
 
     public Boolean getEnabled(){ return enabled; }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -20,19 +20,5 @@ public class   CustomUserDetailService implements UserDetailsService {
         return new CustomUserDetails(user);
     }
 
-    public User getCurrentUser(Authentication auth){
-        if(auth == null){
-            return null;
-        }
-
-        User u = null;
-        Object principal = auth.getPrincipal();
-
-        if(principal instanceof CustomUserDetails) {
-            u = ((CustomUserDetails) principal).getUser();
-        }
-
-        return u;
-    }
 
 }
