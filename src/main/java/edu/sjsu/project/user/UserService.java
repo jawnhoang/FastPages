@@ -1,6 +1,5 @@
 package edu.sjsu.project.user;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration;
 import org.springframework.security.core.Authentication;

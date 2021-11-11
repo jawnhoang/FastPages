@@ -31,7 +31,6 @@ public class AppController {
         return "home";
     }
 
-
     //manually navigate to /adminHome when logged in as the admin account
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/adminHome")

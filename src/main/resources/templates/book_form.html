@@ -48,6 +48,7 @@
                 <select th:field = "*{department}" class="form-control" required>
                     <th:block th:each="dept: ${listDept}">
                         <option th:text="${dept.deptName}" th:value="${dept.id}"/>
+
                     </th:block>
                 </select>
             </div>

@@ -27,13 +27,13 @@
                         <th:block th:each = "department: ${listDept}">
                             <tr>
                                 <td>[[${department.deptName}]]</td>
-                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                 <td>
+                                    <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                         <a th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>
 
                                         <a th:href="@{'/departments/delete/' + ${department.id}}">Remove</a>
+                                    </div>
                                 </td>
-                                </div>
                             </tr>
                         </th:block>
                     </tbody>

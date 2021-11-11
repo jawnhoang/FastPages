@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class CustomUserDetails implements UserDetails {
 
-    private User user;
+    private static User user;
 
     public CustomUserDetails(User user) {
         this.user = user;
@@ -47,7 +47,7 @@ public class CustomUserDetails implements UserDetails {
     }
 
 
-    public User getUser(){
+    public static User getUser(){
         return user;
     }
 
@@ -77,6 +77,6 @@ public class CustomUserDetails implements UserDetails {
 
     public Integer getRoleID(){ return user.getRoles().iterator().next().getId();}
 
-    public Integer getUserID(){ return user.getId();}
+    public long getUserID(){ return user.getId();}
 
 }

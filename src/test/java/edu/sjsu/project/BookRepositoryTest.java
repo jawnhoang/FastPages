@@ -15,12 +15,12 @@ import org.springframework.test.annotation.Rollback;
 public class BookRepositoryTest {
     @Autowired
     private BookRepository repo;
-/***
+
     @Test
     public void testCreateBook(){
         /**
          * test create books
-         *
+         */
         Book bookEntry = new Book();
         bookEntry.setTitle("Think Java How to Think Like a Computer Scientist");
        // bookEntry.setAuthor("Allen Downey");
@@ -28,5 +28,4 @@ public class BookRepositoryTest {
         //bookEntry.setUser("1");
 
     }
-    */
 }

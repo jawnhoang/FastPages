@@ -33,23 +33,17 @@
                                 <td>[[${books.year}]]</td>
                                 <td>[[${books.department.deptName}]]</td>
                                 <td>[[${books.details}]]</td>
-                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                 <td>
-                                        <div class="container text-center">
+
+                                    <div class="container text-center">
+                                        <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                                             <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>&nbsp;
                                             <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
                                         </div>
+                                    </div>
+
 
                                 </td>
-                                </div>
-                                <div th:if ="${#request.userPrincipal.principal.getRoleID == 1}">
-                                    <td>
-                                    <div class="container text-center">
-                                        <a th:href="@{'/cart/add/' + ${books.id}}">Check Out</a>&nbsp;
-                                    </div>
-                                    </td>
-                                </div>
-
                             </tr>
                         </th:block>
                     </tbody>

@@ -20,26 +20,26 @@ public class UserRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
-/*
+
     @Test
     public void testCreateUser(){
         /***
          * create user test case
-
+         */
         User user = new User();
-        user.setEmail("random5@gmail.com");
+        user.setEmail("johnhoang5@gmail.com");
         user.setPassword("password");
-        user.setFirstName("Kevin");
-        user.setLastName("Smith");
+        user.setFirstName("John");
+        user.setLastName("Hoang");
 
         /***
          * saves test case into db
-
+         */
         User savedUser = repo.save(user);
 
         /***
          * finds if user exists in file
-
+         */
         User existUser = entityManager.find(User.class, savedUser.getId());
 
         assertThat(existUser.getEmail()).isEqualTo(user.getEmail());
@@ -52,6 +52,5 @@ public class UserRepositoryTest {
 
         assertThat(user).isNotNull(); //return false to indicate user is found
     }
-    */
 
 }
