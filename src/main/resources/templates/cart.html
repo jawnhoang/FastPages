@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
+
+<div>
+    <h2>Welcome to Your Shopping Cart <b>[[${#request.userPrincipal.principal.getFullName}]]</b> </h2>
+</div>
+
+
+</body>
+</html>

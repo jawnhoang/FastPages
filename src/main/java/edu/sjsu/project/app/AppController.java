@@ -30,7 +30,12 @@ public class AppController {
     public String viewUsersList(){
         return "home";
     }
-    
+
+    @GetMapping("/cart")
+    public String viewShoppingCart(){
+        return "cart";
+    }
+
     //manually navigate to /adminHome when logged in as the admin account
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/adminHome")
