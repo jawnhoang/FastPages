@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <title>Book Listing</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/formStyle.css}"/>
 </head>
 <body>
 <!--Navigation bar-->
@@ -14,6 +16,7 @@
 </div>
 <!--end of Navigation bar-->
 
+<div class = "add-container">
 
     <div class="container text-center">
         <div th:if ="${author.id == null}">
@@ -49,14 +52,14 @@
 
 
         <div class = "text-center p-3">
-            <a class="btn btn-secondary" th:href="@{/home}" role="button">Cancel</a>
+            <a class="btn btn-secondary" th:href="@{/authors}" role="button">Cancel</a>
             <button type = "submit" class = "btn btn-primary">Add</button>
         </div>
 
     </div>
     </form>
 
-
+</div>
 
 </body>
 </html>
