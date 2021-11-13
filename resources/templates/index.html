@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/style.css}"/>
+</head>
+<body>
+
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
+<!--end of Navigation bar-->
+
+    <div class = "container text-center">
+        <div>
+            <h1>Welcome to FastPages</h1>
+        </div>
+        <div>
+            <!-- thymeleaf creates reference link -->
+            <h3><a th:href="@{/register}">Register</a></h3>
+            <!--automatic login provided by spring security. no need to code-->
+            <h3><a th:href="@{/login}">Login</a></h3>
+        </div>
+    </div>
+</body>
+</html>

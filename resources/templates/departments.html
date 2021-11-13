@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/style.css}"/>
+</head>
+<body>
+<!--Navigation bar-->
+    <div th:replace="fragments/nav :: nav-bar">
+
+    </div>
+    <!--end of Navigation bar-->
+
+    <div class = "container text-center">
+        <div>
+            <h1>Departments</h1>
+            <div>
+                <table class ="table table-bordered">
+                    <thead class="thead-dark">
+                        <th>Departments</th>
+                    </thead>
+                    <tbody>
+                        <th:block th:each = "department: ${listDept}">
+                            <tr>
+                                <td>[[${department.deptName}]]</td>
+                                <td>
+                                    <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                                        <a th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>
+
+                                        <a th:href="@{'/departments/delete/' + ${department.id}}">Remove</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </th:block>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
+            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                <a class="btn btn-secondary" th:href="@{/departments/new}" role="button">Add</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

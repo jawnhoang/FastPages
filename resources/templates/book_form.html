@@ -1,0 +1,123 @@
+<!--FRONTEND FOR REGISTERING BOOKS TO SELL-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Listing</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/formStyle.css}"/>
+</head>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
+<!--end of Navigation bar-->
+
+<div class = "add-container">
+
+    <div class="container text-center">
+        <div th:if ="${book.id == null}">
+            <h1>New Book Listing</h1>
+        </div>
+        <div th:unless ="${book.id == null}">
+            <h1>Edit Existing Book Listing</h1>
+        </div>
+    </div>
+    <form th:action="@{/books/save}" method="post"
+          style="max-width: 600px; margin: 0 auto;"
+          th:object="${book}">
+        <input type="hidden" th:field="*{id}" th:value="${book.id}"/>
+    <div class = "m-3">
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Title: </label>
+            <div class = "col-8">
+                <input type="text" class = "form-control" th:field="*{title}" required placeholder="Book Title"/>
+            </div>
+        </div>
+
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Year Published: </label>
+            <div class = "col-8">
+                <input type="number" class = "form-control" th:field="*{year}" required placeholder="Year Published"/>
+            </div>
+        </div>
+
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Education Department:</label>
+            <div class = "col-8">
+                <select th:field = "*{department}" class="form-control" required>
+                    <th:block th:each="dept: ${listDept}">
+                        <option th:text="${dept.deptName}" th:value="${dept.id}"/>
+
+                    </th:block>
+                </select>
+            </div>
+        </div>
+
+
+<!--find a way to dynamically add more authors at request-->
+        <th:block if="${book.id == null}">
+            <th:block th:unless="${book.id==null}" th:each="detail, status: ${book.details}">
+                <input type="hidden" name="detailID" th:value="${detail.id}"/>
+                <div class = "form-group row">
+                    <label class="col-form-label col-sm-4">Author #[[${status.count}]]: </label>
+                    <div class = "col-sm-4">
+                        <input type="text" name ="firstName" class = "form-control" th:value="${detail.firstName}" required />
+                    </div>
+                    <div class = "col-sm-4">
+                        <input type="text" name ="lastName" class = "form-control" th:value="${detail.lastName}" required/>
+                    </div>
+                </div>
+            </th:block>
+
+
+            <th:block if="${book.id == null}">
+            <div class = "form-group row">
+                <label class="col-form-label col-sm-4">Author #1: </label>
+                <div class = "col-sm-4">
+                    <input type="text" name ="firstName" class = "form-control" required placeholder="First Name"/>
+                </div>
+                <div class = "col-sm-4">
+                    <input type="text" name ="lastName" class = "form-control" required placeholder="Last Name"/>
+                </div>
+            </div>
+            </th:block>
+        </th:block>
+<!--
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Author #2: </label>
+            <div class = "col-sm-4">
+                <input type="text" name ="firstName" class = "form-control"  placeholder="First Name"/>
+            </div>
+            <div class = "col-sm-4">
+                <input type="text" name ="lastName" class = "form-control"  placeholder="Last Name"/>
+            </div>
+        </div>
+
+        <div class = "form-group row">
+            <label class="col-form-label col-sm-4">Author #3: </label>
+            <div class = "col-sm-4">
+                <input type="text" name ="firstName" class = "form-control"  placeholder="First Name"/>
+            </div>
+            <div class = "col-sm-4">
+                <input type="text" name ="lastName" class = "form-control"  placeholder="Last Name"/>
+            </div>
+        </div>
+-->
+        <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/books}" role="button">Cancel</a>
+            <button type = "submit" class = "btn btn-primary">Add</button>
+
+        </div>
+    </div>
+    </form>
+
+</div>
+
+
+
+</body>
+</html>

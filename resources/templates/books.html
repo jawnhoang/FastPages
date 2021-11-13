@@ -1,0 +1,64 @@
+<!--FRONTEND OF SHOWING ALL BOOKS AVAILABLE-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/formStyle.css}"/>
+</head>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
+<!--end of Navigation bar-->
+
+    <div class = "form-container text-center">
+        <div>
+            <h1>Available Books</h1>
+            <div>
+                <table class ="table table-bordered">
+                    <thead class="thead-dark">
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Department</th>
+                        <th>Authors</th>
+                    </thead>
+                    <tbody>
+                        <th:block th:each = "books: ${listBooks}">
+                            <tr>
+                                <td>[[${books.title}]]</td>
+                                <td>[[${books.year}]]</td>
+                                <td>[[${books.department.deptName}]]</td>
+                                <td>[[${books.details}]]</td>
+                                <td>
+
+                                    <div class="container text-center">
+                                        <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                                            <a th:href="@{'/books/edit/' + ${books.id}}">Edit</a>&nbsp;
+                                            <a th:href="@{'/books/delete/' + ${books.id}}">Remove</a>
+                                        </div>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        </th:block>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
+            <br>
+            <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
+                <a class="btn btn-secondary" th:href="@{/books/new}" role="button">Add</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

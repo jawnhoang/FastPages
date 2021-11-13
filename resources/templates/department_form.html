@@ -1,0 +1,46 @@
+<!--FRONTEND FOR REGISTERING BOOKS TO SELL-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Department Listing</title>
+    <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/formStyle.css}"/>
+</head>
+<body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
+<!--end of Navigation bar-->
+
+<div class = "add-container">
+
+    <div class="container text-center">
+        <div>
+            <h1>List New Dept</h1>
+        </div>
+    </div>
+    <form th:action="@{/departments/save}" method="post"
+          style="max-width: 600px; margin: 0 auto;"
+          th:object="${department}">
+    <div class = "m-3">
+        <div class = "form-group row text-center">
+            <label class="col-form-label col-sm-4">Field of Focus:</label>
+            <div class = "col-8">
+                <input type="text" class = "form-control" th:field="*{deptName}" required placeholder="Name of Department"/>
+            </div>
+        </div>
+
+        <div class = "text-center p-3">
+            <a class="btn btn-secondary" th:href="@{/departments}" role="button">Cancel</a>
+            <button type = "submit" class = "btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+    </form>
+</div>
+
+
+</body>
+</html>
