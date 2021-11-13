@@ -1,0 +1,33 @@
+/*In general CSS*/
+
+/*BACKGROUND */
+body{
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/*Consistent Container Format For All*/
+.container{
+    width: 500px;
+    overflow: hidden;
+    background: #F9F6F1;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #791100;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    margin: 5% auto 0;
+}
+
+.btn{
+    background-color: #b4a29f;
+    box-shadow: 0 0 5px #791100;
+    /*text-color:;*/
+}
+
+
+

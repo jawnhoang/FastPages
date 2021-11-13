@@ -2,22 +2,23 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Register Test</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/signup.css}"/>
 </head>
 <body>
-<body>
-<!--Navigation bar-->
-<div th:replace="fragments/nav :: nav-bar">
 
-</div>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
 <!--end of Navigation bar-->
 
+<div class = "signup-body">
     <div class = "container text-center">
-        <div>
+        <div class = "header">
             <h1>Gain access now!</h1>
         </div>
-        <div>
+        <div class="form">
             <!-- action must match @PostMapping-->
             <!--this form sends password of user object into encryption function-->
             <form th:action="@{/process_registration}" method = "post"
@@ -36,7 +37,7 @@
                         <label class="col-form-label col-4">Password</label>
                         <div class="col-8">
                             <input type="password" class="form-control" th:field="*{password}" required
-                            minlength="6" maxlength="10"/>
+                                   minlength="6" maxlength="10"/>
                         </div>
                     </div>
 
@@ -55,15 +56,14 @@
                                    minlength="2" maxlength="20"/>
                         </div>
                     </div>
-
                     <div>
-                        <button type = "submit" class = "btn btn-primary">Sign Up</button>
+                    <button type = "submit" class = "signup-btn btn-primary">Sign Up</button>
+
                     </div>
                 </div>
             </form>
-
-
         </div>
     </div>
+</div>
 </body>
 </html>

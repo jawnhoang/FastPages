@@ -7,6 +7,8 @@
     <title>Books</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/style.css}"/>
 </head>
 <body>
 <!--Navigation bar-->
@@ -46,8 +48,10 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
+
             <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                 <a class="btn btn-secondary" th:href="@{/authors/new}" role="button">Add</a>
+
             </div>
         </div>
     </div>

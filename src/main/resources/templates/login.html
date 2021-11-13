@@ -7,35 +7,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/login.css}"/>
 </head>
 <body>
+<!--Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
+
 <div class="container-fluid text-center">
-    <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
+    <div class = "form">
+        <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
 
-        <div th:if="${param.error}">
-            <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
-        </div>
+            <div th:if="${param.error}">
+                <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+            </div>
 
-        <div th:if="${param.logout}">
-            <p class="text-warning">You have been logged out.</p>
-        </div>
+            <div th:if="${param.logout}">
+                <p class="text-warning">You have been logged out.</p>
+            </div>
 
-        <div class="border border-secondary p-3 rounded">
-            <p>Access to Fast Pages</p>
-            <p>
-                <input type="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
-            </p>
-            <p>
-                <input type="password" name="password" class="form-control" placeholder="Password" required />
-            </p>
-            <p>
-                <input type="checkbox" name="remember-me" />&nbsp;Remember Me
-            </p>
-            <p>
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </p>
-        </div>
-    </form>
+            <div class="border border-secondary p-3 rounded">
+                <p>Access to Fast Pages</p>
+                <p>
+                    <input type="email" name="email" class="form-control" placeholder="E-mail" required autofocus/>
+                </p>
+                <p>
+                    <input type="password" name="password" class="form-control" placeholder="Password" required />
+                </p>
+                <p>
+                    <input type="checkbox" name="remember-me" />&nbsp;Remember Me
+                </p>
+                <p>
+                    <input type="submit" value="Login" class="login-btn btn-primary" />
+
+                </p>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

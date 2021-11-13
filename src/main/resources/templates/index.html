@@ -5,16 +5,14 @@
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--    Custom CSS-->
+    <link rel="stylesheet" type="text/css" th:href ="@{/css/style.css}"/>
 </head>
 <body>
 
 <!--Navigation bar-->
-<div th:replace="fragments/nav :: nav-bar">
-
-</div>
+<div th:replace="fragments/nav :: nav-bar"></div>
 <!--end of Navigation bar-->
-
-
 
     <div class = "container text-center">
         <div>
