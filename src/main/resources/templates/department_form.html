@@ -6,15 +6,14 @@
     <meta charset="UTF-8">
     <title>Department Listing</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <!--    Custom CSS-->
-    <link rel="stylesheet" type="text/css" th:href ="@{/css/formStyle.css}"/>
 </head>
 <body>
 <!--Navigation bar-->
-<div th:replace="fragments/nav :: nav-bar"></div>
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
 <!--end of Navigation bar-->
 
-<div class = "add-container">
 
     <div class="container text-center">
         <div>
@@ -39,7 +38,7 @@
 
     </div>
     </form>
-</div>
+
 
 
 </body>

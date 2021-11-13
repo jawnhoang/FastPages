@@ -39,13 +39,9 @@ public class CartController {
 
     @Autowired CartRepository cartRepo;
 
-    List<Book> bookList = new ArrayList<>();
-
     @GetMapping("/cart")
     public String showCart(Model model){
-        //User user = UserService.getCurrentlyLoggedInUser(auth);
-        //return list of cart items
-       //List<Cart> listCart = cartServices.listCartItems(user);
+
         /**
          * TODO:
          *  print only book that user checks out.
@@ -65,29 +61,19 @@ public class CartController {
             user = null;
         }
 
-        System.out.println("user ID: " + user.getId());
-
-        List<Book> newBookList = new ArrayList<>();
-
+        //prints the books in the user cart related to the id of the
+        //currently logged-in user, meant for debugging
         System.out.println("looping through listCart:");
         for(Cart c:listCart){
             System.out.println("current cart user: " + c.getUser().getId());
-            if(c.getUser().getId() == 1){
-                newBookList.add(c.getBook());
+            if(c.getUser().getId() == user.getId()){
                 System.out.println(c.getBook().getTitle());
             }
         }
 
-        User onlyUser = userRepo.findEmail("johnhoang5@gmail.com");
-        List<Cart> cartItems = cartServices.listCartItems(onlyUser);
+        List<Cart> cartItems = cartServices.listCartItems(user);
         model.addAttribute("listCart", cartItems);
-        //model.addAttribute("listBook", newBookList);
-        //model.addAttribute("bookList", bookList);
         model.addAttribute("pageTitle", "Checked Out Books");
-
-        if(bookList != null) {
-            bookList.clear();
-        }
 
         return "cart";
     }
@@ -116,14 +102,7 @@ public class CartController {
             user = null;
         }
 
-        bookList.add(book);
-
-
-        for(Cart c:listCart){
-            if(c.getUser().getId() == 1){
-                c.setBook(book);
-            }
-        }
+        cartServices.addBook(book.getId(), user);
 
         model.addAttribute("book", book);
         return "cart_form";

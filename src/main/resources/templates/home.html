@@ -5,8 +5,6 @@
     <title>User</title>
     <link rel="stylesheet" type="text/css" href ="/webjars/bootstrap/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <!--    Custom CSS-->
-    <link rel="stylesheet" type="text/css" th:href ="@{/css/style.css}"/>
 </head>
 <body>
 <!--Navigation bar-->
@@ -29,13 +27,14 @@
 
             <!--link to upload book to db to sell-->
 
-            <div class="home-container text-center">
+            <div class="container text-center">
                 <div th:if ="${#request.userPrincipal.principal.getRoleID == 1}">
                     <h2><a th:href="@{/books}">View All Books</a> </h2>
                     <h2><a th:href="@{/departments}">View Departments</a></h2>
                     <h2><a th:href="@{/authors}">View All Authors</a></h2>
                 </div>
                 <div th:unless ="${#request.userPrincipal.principal.getRoleID == 1}">
+                    <h2><a th:href="@{/adminPanel}">Admin Panel</a></h2>
                     <h2><a th:href="@{/books}">View All Books</a> </h2>
                     <h2><a th:href="@{/departments}">View Departments</a></h2>
                     <h2><a th:href="@{/authors}">View All Authors</a></h2>

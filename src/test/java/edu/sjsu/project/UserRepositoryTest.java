@@ -21,36 +21,36 @@ public class UserRepositoryTest {
     @Autowired
     private TestEntityManager entityManager;
 
-//    @Test
-//    public void testCreateUser(){
-//        /***
-//         * create user test case
-//         */
-//        User user = new User();
-//        user.setEmail("johnhoang5@gmail.com");
-//        user.setPassword("password");
-//        user.setFirstName("John");
-//        user.setLastName("Hoang");
-//
-//        /***
-//         * saves test case into db
-//         */
-//        User savedUser = repo.save(user);
-//
-//        /***
-//         * finds if user exists in file
-//         */
-//        User existUser = entityManager.find(User.class, savedUser.getId());
-//
-//        assertThat(existUser.getEmail()).isEqualTo(user.getEmail());
-//    }
-//
-//    @Test
-//    public void testEmail(){
-//        String email = "john.k.hoang@sjsu.edu";
-//        User user = repo.findEmail(email); //return object found
-//
-//        assertThat(user).isNotNull(); //return false to indicate user is found
-//    }
+    @Test
+    public void testCreateUser(){
+        /***
+         * create user test case
+         */
+        User user = new User();
+        user.setEmail("johnhoang5@gmail.com");
+        user.setPassword("password");
+        user.setFirstName("John");
+        user.setLastName("Hoang");
+
+        /***
+         * saves test case into db
+         */
+        User savedUser = repo.save(user);
+
+        /***
+         * finds if user exists in file
+         */
+        User existUser = entityManager.find(User.class, savedUser.getId());
+
+        assertThat(existUser.getEmail()).isEqualTo(user.getEmail());
+    }
+
+    @Test
+    public void testEmail(){
+        String email = "john.k.hoang@sjsu.edu";
+        User user = repo.findEmail(email); //return object found
+
+        assertThat(user).isNotNull(); //return false to indicate user is found
+    }
 
 }
