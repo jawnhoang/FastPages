@@ -113,7 +113,7 @@ public class CartController {
         }
 
         cartServices.removeBook(book.getId(), user);
-        //cartRepo.delet
+
         model.addAttribute("book", book);
         return "remove_cart";
     }
