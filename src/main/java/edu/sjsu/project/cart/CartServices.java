@@ -51,18 +51,9 @@ public class CartServices {
 
         Book book = bookRepo.findById(bookId).get();
         Cart cart = cartRepo.findByUserAndBook(u, book);
-        //List<Cart> allCarts = cartRepo.findAll();
 
         cartRepo.deleteById(cart.getId());
 
-        /*
-        if(cart != null) {
-            allCarts.remove(cart);
-            //cartRepo.save(cart);
-        }
-
-        cartRepo.save(cart);
-         */
         return totalAdded;
     }
 }
