@@ -9,7 +9,7 @@ body{
 
 /*Consistent Container Format For All*/
 .container{
-    width: 500px;
+    width: 550px;
     overflow: hidden;
     background: #F9F6F1;
     border-radius: 5px;
@@ -21,10 +21,11 @@ body{
     padding-bottom: 30px;
     padding-top: 30px;
     margin: 5% auto 0;
+    margin-bottom: 100px;
 }
 
 .btn{
-    background-color: #b4a29f;
+    background-color: #d3b7ae;
     box-shadow: 0 0 5px #791100;
     /*text-color:;*/
 }

@@ -10,25 +10,32 @@
 </head>
 <body>
 <!--Navigation bar-->
-<div th:replace="fragments/nav :: nav-bar"></div>
+<div th:replace="fragments/nav :: nav-bar">
+
+</div>
 <!--end of Navigation bar-->
 
-<div class = "cart-container">
-    <div class = "container text-center">
+    <div class = "form-container text-center">
         <div>
-            <h2>Your Checked Out Books:</h2>
+            <h2>All Checked Out Books:</h2>
             <div>
                 <table class ="table table-bordered">
                     <thead class="thead-dark">
                     <th>Title</th>
+                    <th>Department</th>
+                    <th>Student</th>
+                    <th>Student ID</th>
                     </thead>
                     <tbody>
                     <th:block th:each = "items: ${listCart}">
-                        <tr th:with="book = ${items.book}">
-                            <td>[[${book.title}]]</td>
+                        <tr th:with="book = ${items.book}, user =${items.user}">
+                            <td align="left">[[${book.title}]]</td>
+                            <td>[[${book.department.deptName}]]</td>
+                            <td>[[${user.firstName}]]</td>
+                            <td>[[${user.id}]]</td>
                         </tr>
                     </th:block>
-
+                    </tbody>
                     </tbody>
                 </table>
             </div>
@@ -39,7 +46,8 @@
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
         </div>
     </div>
-</div>
+
+
 
 </body>
 </html>

@@ -12,10 +12,8 @@
 </head>
 <body>
 <!--Navigation bar-->
-    <div th:replace="fragments/nav :: nav-bar">
-
-    </div>
-    <!--end of Navigation bar-->
+<div th:replace="fragments/nav :: nav-bar"></div>
+<!--end of Navigation bar-->
 
     <div class = "container text-center">
         <div>
@@ -48,10 +46,8 @@
         </div>
         <div class = "text-center p-3">
             <a class="btn btn-secondary" th:href="@{/home}" role="button">Home</a>
-
             <div th:if ="${#request.userPrincipal.principal.getRoleID == 2}">
                 <a class="btn btn-secondary" th:href="@{/authors/new}" role="button">Add</a>
-
             </div>
         </div>
     </div>
