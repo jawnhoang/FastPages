@@ -45,5 +45,25 @@ public class CartServices {
 
         return totalAdded;
     }
+
+    public Integer removeBook(Integer bookId, User u){
+        Integer totalAdded = 0;
+
+        Book book = bookRepo.findById(bookId).get();
+        Cart cart = cartRepo.findByUserAndBook(u, book);
+        //List<Cart> allCarts = cartRepo.findAll();
+
+        cartRepo.deleteById(cart.getId());
+
+        /*
+        if(cart != null) {
+            allCarts.remove(cart);
+            //cartRepo.save(cart);
+        }
+
+        cartRepo.save(cart);
+         */
+        return totalAdded;
+    }
 }
 

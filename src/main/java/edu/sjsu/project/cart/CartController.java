@@ -61,16 +61,6 @@ public class CartController {
             user = null;
         }
 
-        //prints the books in the user cart related to the id of the
-        //currently logged-in user, meant for debugging
-        System.out.println("looping through listCart:");
-        for(Cart c:listCart){
-            System.out.println("current cart user: " + c.getUser().getId());
-            if(c.getUser().getId() == user.getId()){
-                System.out.println(c.getBook().getTitle());
-            }
-        }
-
         List<Cart> cartItems = cartServices.listCartItems(user);
         model.addAttribute("listCart", cartItems);
         model.addAttribute("pageTitle", "Checked Out Books");
@@ -106,6 +96,26 @@ public class CartController {
 
         model.addAttribute("book", book);
         return "cart_form";
+    }
+
+    @GetMapping("/cart/remove/{id}")
+    public String removeCartItem(@PathVariable("id") Integer id, Model model){
+        Book book = bookRepo.findById(id).get();
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<Cart> listCart = cartRepo.findAll();
+        User user;
+        Object principal = auth.getPrincipal();
+        if(principal instanceof CustomUserDetails){
+            user = ((CustomUserDetails) principal).getUser();
+        } else {
+            user = null;
+        }
+
+        cartServices.removeBook(book.getId(), user);
+        //cartRepo.delet
+        model.addAttribute("book", book);
+        return "remove_cart";
     }
 
 
