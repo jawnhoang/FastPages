@@ -22,7 +22,9 @@
             <img src = "../static/images/profile-pic2.jpg" th:src="@{images/profile-pic2.jpg}">
         </div>
         <div class="user">
-            <h3>Hello [[${#request.userPrincipal.principal.getFullName}]]!</h3>
+            <h3>Hello [[${#request.userPrincipal.principal.getFullName}]]!
+            <br>
+            Email: [[${#request.userPrincipal.principal.getEmail}]]</h3>
         </div>
         <div class="content">
             <div class="card-body">
