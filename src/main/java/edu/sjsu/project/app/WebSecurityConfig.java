@@ -69,7 +69,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home", "/cart").authenticated()
+                /**
+                 * first .antMatchers requires user to be logged in to access these pages
+                 * second .antMatchers requires user to have ADMIN permission to access page.
+                 */
+                .antMatchers("/home", "/books/**", "/departments/**","/profile/**", "/cart").authenticated()
                 .antMatchers("/adminHome").hasAuthority("ADMIN")
                 .anyRequest().permitAll()
                 .and()
