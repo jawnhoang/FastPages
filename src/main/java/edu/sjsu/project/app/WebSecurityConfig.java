@@ -57,12 +57,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     /***
-     * why this function a cluster fuck.
-     *
-     * source:
-     * https://www.youtube.com/watch?v=aRLoSDOlU3w&t=2171s&ab_channel=CodeJava'
-     * 1:10:00 -> 1:13:00
-     *
      * @param http
      * @throws Exception
      */
