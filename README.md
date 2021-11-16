@@ -3,13 +3,6 @@
 How to run:
 
 1. Find and run WebappApplication.java in /src/main/java/edu.sjsu.project/
- 
- OR
- 
-1. Import project file as Maven Proj on IntelliJ
-2. Build as MAven PAckage
-3. Locate .jar file in target folder
-4. run the jar file
 
 ---------------------
 
@@ -30,8 +23,5 @@ when importing, if src file not showing
 this should fix.
 
 ------------
-
-
-
 
 Please document all code done.
