@@ -34,13 +34,17 @@ Creating Docker image:
 3. map: 
 ex. 
 FROM openjdk:8
+
 ADD target/<maven jar file> <name of image>.jar
+  
 EXPOSE 8080
+  
 ENTRYPOINT ["java", "-jar", "<name of image>.jar"]
 
 4. open terminal 
 5. cd to code directory
 6. build:
 "docker build -f Dockerfile -t <name of image> . "
+  
 7. if build success -> run:
 "docker run -p 8085:8085 <name of image>"
