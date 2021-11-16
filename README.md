@@ -57,4 +57,6 @@ ENTRYPOINT ["java", "-jar", "<name of image>.jar"]
   
   1. open powershell or terminal
   2. "docker pull johnhoang5/fast-pages-image"
-  3. run in Docker Desktop
+  3. Open Docker Desktop
+  4. Configure johnhoang5/fast-pages-image port to 8080
+  5. run
