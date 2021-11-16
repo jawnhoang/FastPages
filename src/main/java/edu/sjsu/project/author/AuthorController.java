@@ -55,7 +55,7 @@ public class AuthorController {
         model.addAttribute("listDept", listDept);
         model.addAttribute("author", author);
 
-        return "brand_form";
+        return "author_form";
 
 
     }
