@@ -10,17 +10,16 @@
 </head>
 <body>
 <!--Navigation bar-->
-<div th:replace="fragments/nav :: nav-bar">
+<div th:replace="fragments/nav :: nav-bar"></div>
+<div class = "container">
+    <div class = "remove-container text-center">
+        <p> [[${book.title}]] has been removed from your cart</p>
+    </div>
 
-</div>
-
-<div class = "container text-center">
-    <p> [[${book.title}]] has been removed from your cart</p>
-</div>
-
-<div class = "text-center p-3">
-    <a class="btn btn-secondary" th:href="@{/books}" role="button">Back to Books</a>
-    <a class="btn btn-secondary" th:href="@{/cart}" role="button">Back to Cart</a>
+    <div class = "text-center p-3">
+        <a class="btn btn-secondary" th:href="@{/books}" role="button">Back to Books</a>
+        <a class="btn btn-secondary" th:href="@{/cart}" role="button">Back to Cart</a>
+    </div>
 </div>
 </body>
 </html>
