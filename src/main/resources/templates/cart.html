@@ -25,7 +25,8 @@
                     <tbody>
                     <th:block th:each = "items: ${listCart}">
                         <tr th:with="book = ${items.book}">
-                            <td>[[${book.title}]] [<a th:href="@{'/cart/remove/' + ${book.id}}">Remove from cart</a>] </td>
+                            <td>[[${book.title}]]</td>
+                            <td><a th:href="@{'/cart/remove/' + ${book.id}}">Remove from cart</a></td>
                         </tr>
                     </th:block>
 
