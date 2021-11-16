@@ -51,3 +51,10 @@ ENTRYPOINT ["java", "-jar", "<name of image>.jar"]
 7. if build success -> run:
   
 "docker run -p 8085:8085 <name of image>"
+  
+ -------------------------------------------
+  To pull this application from docker:
+  
+  1. open powershell or terminal
+  2. "docker pull johnhoang5/fast-pages-image"
+  3. run in Docker Desktop
