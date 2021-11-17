@@ -56,17 +56,28 @@
         </div>
 
 
-        <!--find a way to dynamically add more authors at request-->
-        <th:block if="${book.id == null}">
-            <th:block th:unless="${book.id==null}" th:each="detail, status: ${book.details}">
+        <th:block th:unless="${book.id==null}" th:each="detail: ${book.details}">
                 <input type="hidden" name="detailID" th:value="${detail.id}"/>
                 <div class = "form-group row">
-                    <label class="col-form-label col-sm-4">Author: </label>
+                    <label class="col-form-label col-sm-4">Author #1: </label>
                     <div class = "col-sm-4">
                         <input type="text" name ="firstName" class = "form-control" th:value="${detail.firstName}" required />
                     </div>
                     <div class = "col-sm-4">
                         <input type="text" name ="lastName" class = "form-control" th:value="${detail.lastName}" required/>
+                    </div>
+                </div>
+            </th:block>
+
+
+            <th:block th:if="${book.id == null}">
+                <div class = "form-group row">
+                    <label class="col-form-label col-sm-4">Author</label>
+                    <div class = "col-sm-4">
+                        <input type="text" name ="firstName" class = "form-control" required placeholder="First Name"/>
+                    </div>
+                    <div class = "col-sm-4">
+                        <input type="text" name ="lastName" class = "form-control" required placeholder="Last Name"/>
                     </div>
                 </div>
             </th:block>
