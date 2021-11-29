@@ -4,12 +4,11 @@ University Name - SJSU
 Course: Enterprise Software - CMPE172/ Fall 2021
 Team Members:
 
--John Hoang
+John Hoang  	014411072
 
--Western Han
+Western Han  	012261964
 
--Aryan Kumar
-
+Aryan Kumar 	012162371
 
 Project Introduction:
 
@@ -124,9 +123,11 @@ Admin Cataloge Page, Can edit/remove books:
 Admin add new books/edit books Process:
 
 Click Add Book:
+
 ![image](https://user-images.githubusercontent.com/54566354/143793645-9593bfc6-8738-48f2-a4eb-1d2b2e33a7dc.png)
 
 Add Info:
+
 ![image](https://user-images.githubusercontent.com/54566354/143793658-2d16bb0a-7593-431a-8261-f0097faebd3d.png)
 
 
