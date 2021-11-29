@@ -17,7 +17,7 @@ This web application is intended to be an enterprise application aimed at school
 departments. Admins have the power to add/edit/remove books, departments, and authors and view a list of books that are checked out by what student.
 
 Sample Demo Screenshots Found at Bottom
-
+---------------------------------------
 
 
 
