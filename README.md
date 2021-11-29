@@ -125,7 +125,28 @@ Admin add new books/edit books Process:
 
 Click Add Book:
 ![image](https://user-images.githubusercontent.com/54566354/143793645-9593bfc6-8738-48f2-a4eb-1d2b2e33a7dc.png)
+
 Add Info:
 ![image](https://user-images.githubusercontent.com/54566354/143793658-2d16bb0a-7593-431a-8261-f0097faebd3d.png)
+
+
+
+---------------------------------------------------
+System Diagram:
+![image](https://user-images.githubusercontent.com/54566354/143795412-ae245c22-6412-4199-af3d-9b6d7ac01367.png)
+
+Class Diagram:
+![image](https://user-images.githubusercontent.com/54566354/143795473-56d1c7d0-7572-4df0-bbf8-b6185d7d3520.png)
+
+Sequence Diagram:
+![image](https://user-images.githubusercontent.com/54566354/143795492-ed462fde-7533-4337-bba0-9cd959a50659.png)
+
+Interaction Diagram:
+![image](https://user-images.githubusercontent.com/54566354/143795499-c5622027-d01a-4bd5-83eb-3dd32d121843.png)
+
+DB Schema Diagram:
+![image](https://user-images.githubusercontent.com/54566354/143795505-e3fd9d7c-20a3-4d3c-bb56-143d43b9efc0.png)
+
+
 
 
