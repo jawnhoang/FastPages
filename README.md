@@ -1,14 +1,32 @@
 # FastPages
+University Name - SJSU 
+
+Course: Enterprise Software - CMPE172/ Fall 2021
+Team Members:
+
+-John Hoang
+
+-Western Han
+
+-Aryan Kumar
+
+
+Project Introduction:
+
+This web application is intended to be an enterprise application aimed at school book stores/libraries so students can easily find and check out books they need in respected 
+departments. Admins have the power to add/edit/remove books, departments, and authors and view a list of books that are checked out by what student.
+
+Sample Demo Screenshots Found at Bottom
+
+
+
+
 
 How to run:
 
 1. Find and run WebappApplication.java in /src/main/java/edu.sjsu.project/
 
 ---------------------
-
-homepage of site is index.html
-
------------------------
 
 Updating and Maintaining
 1. any changes, always build as maven
