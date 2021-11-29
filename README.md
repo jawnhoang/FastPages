@@ -17,12 +17,12 @@ This web application is intended to be an enterprise application aimed at school
 departments. Admins have the power to add/edit/remove books, departments, and authors and view a list of books that are checked out by what student.
 
 Sample Demo Screenshots Found at Bottom
----------------------------------------
+----------------------------------------
 
 
 
 
-How to run:
+# How to run:
 
 1. Find and run WebappApplication.java in /src/main/java/edu.sjsu.project/
 
@@ -40,12 +40,8 @@ when importing, if src file not showing
 3. locate FastPages folder and import entire folder.
 this should fix.
 
-------------
-
-Please document all code done.
-
 -------------------------
-Creating Docker image:
+# Creating Docker image:
 1. Compile and then build as maven package
 2. add file to main directory as "Dockerfile"
 
@@ -82,7 +78,7 @@ ENTRYPOINT ["java", "-jar", "fast-pages-image.jar"]
   6. visit: http://localhost:8085/
 
 ---------------------------------------------------------------------------------------------------------------
-Demo Screen Shots from Hosted Site
+# Demo Screen Shots from Hosted Site
 http://fastpages.us-west-1.elasticbeanstalk.com/
 
 These screenshots captures main features of this application
